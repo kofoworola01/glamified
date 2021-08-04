@@ -1,0 +1,24 @@
+.nav {
+    background: #000;
+    display: flex;
+    padding: 20px;
+    color: #ffff;
+    align-items: center;
+}
+ul {
+    list-style: none;
+    display: flex;
+    margin-left: 27px;
+    align-items: center;
+}
+li {
+    margin-left: 40px;
+    font-size: 20px;
+}
+.brand-name {
+    font-size: 30px;
+    color: #ffffff
+}
+.icons {
+    margin-left: 500px;
+}
