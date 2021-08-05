@@ -13,7 +13,11 @@ const data = [{
 
 const index = () => {
   return (
+    
     <div className="products-wrapper">
+
+    <h1 style={{textAlign: 'center'}}>Categories</h1>
+
       <Row justify="space-between">
         <Col span={4} className="category">
           EYES
@@ -39,7 +43,6 @@ const index = () => {
           </span>
         </Col>
       </Row>
-      
       <Row gutter={[16, 48]}>
         {data.map((data,i) => (
           <Col xxl={6} lg={8} md={12}>
