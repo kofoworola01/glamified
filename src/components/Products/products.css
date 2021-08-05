@@ -1,0 +1,28 @@
+.products-wrapper {
+    margin-top: 60px;
+    /* padding-bottom: 50px; */
+    padding: 20px;
+}
+.category {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    background-color: rgb(197, 185, 180);
+    cursor: pointer;
+}
+.category:hover {
+    background-color: rgb(248, 185, 164);
+}
+.card {
+    height: 500px;
+    text-align: center;
+    margin-top: 50px;
+}
+.product-img img{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}

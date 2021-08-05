@@ -3,7 +3,7 @@ import { Carousel } from 'antd';
 import "./banner.css";
 import banner1 from "../../assets/images/makeup3.jpg";
 import banner2 from "../../assets/images/makeup1.jpg";
-import banner3 from "../../assets/images/makeup6.jpg";
+import banner3 from "../../assets/images/makeup2.jpg";
 
 
 const index = () => {
