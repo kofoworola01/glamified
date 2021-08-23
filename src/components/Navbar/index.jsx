@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.css';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
 const index = () => {
   return (
     <div className='nav'>
-      <h3 className='brand-name'>Glamified</h3>
+      <Link to='/home'><h3 className='brand-name'>Glamified</h3></Link>
       <ul>
         <li>Products</li>
         <li>Blog</li>
