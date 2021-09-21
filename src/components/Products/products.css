@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 .category:hover {
-  background-color: rgb(248, 185, 164);
+  background-color: rgb(243, 203, 190);
 }
 .card {
   /* height: 450px; */

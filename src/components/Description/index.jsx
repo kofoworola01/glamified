@@ -1,6 +1,6 @@
 import React from 'react';
 import lipstick from '../../assets/images/makeup1.jpg';
-import Button from '../Button'
+import Button from '../Button';
 import './description.css';
 
 const Description = () => {
@@ -14,12 +14,19 @@ const Description = () => {
           <h1>Lipstick</h1>
           <h3>Category</h3>
           <h1>$50.00</h1>
-          <p>Blotted Lip Sheer matte lipstick that creates the perfect popsicle pout! Formula is lightweight, matte and buildable for light to medium coverage.</p>
+          <p>
+            Blotted Lip Sheer matte lipstick that creates the perfect popsicle
+            pout! Formula is lightweight, matte and buildable for light to
+            medium coverage.
+          </p>
           <div>
-            <Button BtnText='Add to Cart' fontSize='20px'/>
+            <Button 
+              BtnText='Add to Cart' 
+              fontSize='18px' 
+              BtnWidth='150px'
+            />
           </div>
         </div>
-        
       </div>
     </div>
   );

@@ -1,17 +1,17 @@
 import React from 'react'
 import './button.css'
 
-const Button = ({BtnText, fontSize, type}) => {
+const Button = ({BtnText, fontSize, type, BtnWidth}) => {
 
   const BtnStyle = {
-    width: '215px',
+    width: `${BtnWidth ? BtnWidth : '215px'}`,
     padding: '10px',
-    fontSize: `${ fontSize || '14px'}`,
+    fontSize: `${fontSize || '14px'}`,
     border: '1px solid silver',
     borderRadius: '5px',
     background: 'white',
     fontWeight: 'bold',
-    margin: `${ type === 'homepage' ? '20px' : null}`,
+    margin: `${type === 'homepage' ? '20px' : null}`,
     cursor: 'pointer',
   }
 

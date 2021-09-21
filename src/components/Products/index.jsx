@@ -15,13 +15,17 @@ const data = Array(10).fill({
   price: "$45.99",
 });
 
+const handleFilter = () => {
+  if(data.id % 2 === 0){
+    data.filter((data) => data.category === 'face')
+  } 
+}
+
 const index = () => {
   return (
     <div className="products-wrapper">
-      {/* <h1 style={{textAlign: 'center'}}>Categories</h1> */}
-
       <Row justify="space-around">
-        <Col span={4} className="category">
+        <Col span={4} className="category" onClick={handleFilter}>
           EYES
         </Col>
         <Col span={4} className="category">
