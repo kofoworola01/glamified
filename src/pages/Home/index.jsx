@@ -11,6 +11,7 @@ const index = () => {
       <Banner />
       <Products />
       <Footer />
+      
     </div>
   );
 };

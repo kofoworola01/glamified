@@ -1,31 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useQuery } from 'react-query'
+import { ProductsApi } from "../../api";
 import { Link } from 'react-router-dom'
 import { Row, Col } from "antd";
-import lipstick from "../../assets/images/makeup1.jpg";
 import Button from '../Button';
 import "./products.css";
 
-// import FormBody from './../FormBody';
+// import axios from "axios";
 
-const data = Array(10).fill({
-  id: 1,
-  Image: lipstick,
-  productName: "Lipstick",
-  category: "category",
-  price: "$45.99",
-});
+const Products = () => {
 
-const handleFilter = () => {
-  if(data.id % 2 === 0){
-    data.filter((data) => data.category === 'face')
-  } 
-}
+  const { data, isLoading, refetch } = useQuery(
+    'fetchCategory',
+    () => ProductsApi(),
+    {
+        enabled: false,
+        retry: false,
+    },
+  )
 
-const index = () => {
+  let cat = data?.data
+
+  console.log(cat, 'kkkkk')
+  
+
+  useEffect(() => {
+    refetch()
+
+    // eslint-disable-next-line
+  }, [])
+
+
   return (
     <div className="products-wrapper">
       <Row justify="space-around">
-        <Col span={4} className="category" onClick={handleFilter}>
+        <Col span={4} className="category">
           EYES
         </Col>
         <Col span={4} className="category">
@@ -49,21 +58,23 @@ const index = () => {
           </span>
         </Col>
       </Row>
-
-      <Row gutter={[30, 16]}>
-        {data.map((data, i) => (
-          <Col xxl={6} lg={6} md={12}>
+      { isLoading ? (
+        <p style={{textAlign: 'center'}}>Loading...</p>
+      ) : (
+        <Row gutter={[30, 16]}>
+        {cat?.map((data) => (
+          <Col xxl={6} lg={6} md={12} key={data.id}>
             <div className="card">
               <div className="product-img">
                 <Link to='/description'>
-                <img src={data.Image} alt="" />
+                <img src={data?.api_featured_image} alt="" />
                 </Link>
               </div>
               <div>
                 <div className="product-details">
-                  <h2>{data.productName}</h2>
-                  <p>{data.category}</p>
-                  <p style={{fontSize: '20px'}}>{data.price}</p>
+                  <h2>{data?.name}</h2>
+                  <p>{data?.category}</p>
+                  <p style={{fontSize: '20px'}}>{data?.price_sign}{data?.price}</p>
                   <Button BtnText='Add to Cart' type='homepage'/> 
                 </div>
               </div>
@@ -71,8 +82,10 @@ const index = () => {
           </Col>
         ))}
       </Row>
+      )}
+      
     </div>
   );
 };
 
-export default index;
+export default Products;
