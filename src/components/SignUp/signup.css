@@ -1,0 +1,22 @@
+.fieldsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputField {
+  margin-bottom: 20px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  height: 45px;
+  padding: 10px;
+}
+
+label {
+  margin-bottom: 7px;
+}
+
+.BtnWrapper {
+  display: flex;
+  justify-content: center;
+}

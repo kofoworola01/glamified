@@ -1,9 +1,18 @@
 import React from 'react';
+import { useParams } from 'react-router';
 import lipstick from '../../assets/images/makeup1.jpg';
 import Button from '../Button';
 import './description.css';
 
 const Description = () => {
+
+  // const location = useLocation()
+
+  const { id } = useParams()
+
+
+  console.log(id, 'iddd')
+
   return (
     <div className='description-Wrapper'>
       <div className='product-wrapper'>

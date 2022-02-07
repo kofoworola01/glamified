@@ -4,10 +4,14 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
+import dotenv from 'dotenv'
 
 const queryClient = new QueryClient()
 
+dotenv.config()
+
 const App = () => {
+
 
   return (
     <div>

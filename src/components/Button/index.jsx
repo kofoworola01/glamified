@@ -1,7 +1,7 @@
 import React from 'react'
 import './button.css'
 
-const Button = ({BtnText, fontSize, type, BtnWidth}) => {
+const Button = ({BtnText, fontSize, type, BtnWidth, handleClick}) => {
 
   const BtnStyle = {
     width: `${BtnWidth ? BtnWidth : '215px'}`,
@@ -18,7 +18,7 @@ const Button = ({BtnText, fontSize, type, BtnWidth}) => {
 
   return (
     <div>
-      <button style={BtnStyle} className='btn'>
+      <button style={BtnStyle} className='btn' onClick={handleClick}>
         {BtnText}
       </button>
     </div>
