@@ -4,11 +4,12 @@
   padding: 20px;
   color: #ffff;
   align-items: center;
+  justify-content: space-around;
 }
 ul {
   list-style: none;
   display: flex;
-  margin-left: 30px;
+  cursor: pointer;
   align-items: center;
 }
 li {
@@ -20,5 +21,10 @@ li {
   color: #ffffff;
 }
 .icons {
-  margin-left: 500px;
+  display: flex
+}
+.signUpText {
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 32px;
 }

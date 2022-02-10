@@ -34,8 +34,8 @@ const Index = () => {
         <li>Contact</li>
       </ul>
       <div className='icons'>
-        <p style={{cursor: 'pointer'}} onClick={handleShowModal}>Sign Up</p>
-      <ShoppingCartOutlined style={{ fontSize: '30px' }} />
+        <p className='signUpText' onClick={handleShowModal}>Sign Up</p>
+        <ShoppingCartOutlined style={{ fontSize: '30px' }} />
       </div>
     </div>
   );
