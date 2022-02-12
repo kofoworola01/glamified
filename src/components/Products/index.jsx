@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useHistory } from 'react-router';
-import { ProductsApi } from '../../api';
+import { ProductsApi, EyeItemsApi } from '../../api';
 import { Row, Col } from 'antd';
 import Button from '../Button';
 import './products.css';
 
-const Products = () => {
+const Products = (props) => {
   const history = useHistory();
   // const [id, setId] = useState('')
+  const [ count, setCount] = useState(0)
 
   const { data, isLoading, refetch } = useQuery(
     'fetchCategory',
-    () => ProductsApi(),
+    () => props.page === 'eye' ? EyeItemsApi() : ProductsApi(),
     {
       enabled: false,
       retry: false,
@@ -20,6 +21,8 @@ const Products = () => {
   );
 
   let items = data?.data;
+
+  props.holdCount(count)
 
   useEffect(() => {
     refetch();
@@ -29,7 +32,8 @@ const Products = () => {
 
   return (
     <div className='products-wrapper'>
-      <Row justify='space-around'>
+      { props.page !== 'eyes' && 
+        <Row justify='space-around'>
         <Col
           span={4}
           className='category'
@@ -58,6 +62,7 @@ const Products = () => {
           </span>
         </Col>
       </Row>
+      }
       {isLoading ? (
         <p style={{ textAlign: 'center', marginTop: 50 }}>Loading...</p>
       ) : (
@@ -82,7 +87,11 @@ const Products = () => {
                         {data?.price_sign}
                         {data?.price}
                       </p>
-                      <Button BtnText='Add to Cart' type='homepage' />
+                      <Button 
+                        BtnText='Add to Cart' 
+                        type='homepage' 
+                        handleClick={() => setCount(count + 1)}
+                      />
                     </div>
                   </div>
                 </div>

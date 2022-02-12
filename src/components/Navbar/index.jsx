@@ -5,7 +5,7 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
 import SignUp from '../SignUp';
 
-const Index = () => {
+const NavBar = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleShowModal = () => {
@@ -35,10 +35,13 @@ const Index = () => {
       </ul>
       <div className='icons'>
         <p className='signUpText' onClick={handleShowModal}>Sign Up</p>
-        <ShoppingCartOutlined style={{ fontSize: '30px' }} />
+        <div style={{position: 'relative', cursor: 'pointer'}}>
+          <ShoppingCartOutlined style={{ fontSize: '30px' }} />
+          <span className='cartCount'>{props.cartCount}</span>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Index;
+export default NavBar;
