@@ -20,3 +20,13 @@ label {
   display: flex;
   justify-content: center;
 }
+
+.signInTextWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+ 
+span {
+  cursor: pointer;
+  color: rgb(18, 18, 151);
+}
