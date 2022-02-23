@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useHistory } from 'react-router';
 import { ProductsApi, EyeItemsApi } from '../../api';
@@ -8,8 +8,6 @@ import './products.css';
 
 const Products = (props) => {
   const history = useHistory();
-  // const [id, setId] = useState('')
-  const [ count, setCount] = useState(0)
 
   const { data, isLoading, refetch } = useQuery(
     'fetchCategory',
@@ -22,7 +20,6 @@ const Products = (props) => {
 
   let items = data?.data;
 
-  props.holdCount(count)
 
   useEffect(() => {
     refetch();
@@ -90,7 +87,7 @@ const Products = (props) => {
                       <Button 
                         BtnText='Add to Cart' 
                         type='homepage' 
-                        handleClick={() => setCount(count + 1)}
+                        handleClick={() => props.handleCartCount(data)}
                       />
                     </div>
                   </div>

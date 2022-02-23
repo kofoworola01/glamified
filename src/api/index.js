@@ -2,7 +2,6 @@ import axios from 'axios'
 
 export const ProductsApi = async () => {
   const params = {
-    limit: 10,
     price_greater_than: 7,
     product_category: 'lipstick'
   }
@@ -16,7 +15,6 @@ export const ProductsApi = async () => {
 
 export const EyeItemsApi = async () => {
   const params = {
-    limit: 10,
     price_greater_than: 13,
     product_category: 'liquid'
   }

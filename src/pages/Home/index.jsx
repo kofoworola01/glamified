@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '../../components/Navbar';
 import Banner from '../../components/Banner';
 import Products from '../../components/Products';
 import Footer from '../../components/Footer';
 
-const Home = () => {
-  const [cartCount, setCartCount] = useState('')
+const Home = (props) => {
+  // const [cartCount, setCartCount] = useState('')
 
-  const handleCartList = (data) => {
-    setCartCount(data, 'ccccc')
-  }
-
+  // const handleCartList = (data) => {
+  //   setCartCount(data, 'ccccc')
+  // }
+  
   return (
     <div>
-      <Navbar cartCount={cartCount} />
+      <Navbar cart={props.cart} />
       <Banner />
-      <Products holdCount={handleCartList} />
+      <Products handleCartCount={props.handleCartCount} />
       <Footer />
     </div>
   );

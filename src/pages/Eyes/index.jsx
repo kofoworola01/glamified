@@ -1,24 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import Products from '../../components/Products';
 
 import './eyes.css'
 
-const Eyes = () => {
-
-  const [cartCount, setCartCount] = useState('')
-
-  const handleCartList = (data) => {
-    setCartCount(data, 'ccccc')
-  }
+const Eyes = (props) => {
 
   return (
     <div>
-      <Navbar cartCount={cartCount} />
+      <Navbar cart={props.cart} />
       <div className='Wrapper'>
         <h1>EYES</h1> 
-        <Products page='eye' holdCount={handleCartList} />
+        <Products page='eye' handleCartCount={props.handleCartCount} />
       </div>
       <Footer />
     </div>

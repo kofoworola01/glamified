@@ -16,6 +16,7 @@ const NavBar = (props) => {
     setIsModalVisible(false)
   }
 
+
   return (
     <div className='nav'>
       <Modal 
@@ -37,7 +38,7 @@ const NavBar = (props) => {
         <p className='signUpText' onClick={handleShowModal}>Sign Up</p>
         <div style={{position: 'relative', cursor: 'pointer'}}>
           <ShoppingCartOutlined style={{ fontSize: '30px' }} />
-          <span className='cartCount'>{props.cartCount}</span>
+          <span onClick={() =>  console.log(props.cart, 'carttttt')} className='cartCount'>{props.cart.length}</span>
         </div>
       </div>
     </div>
