@@ -3,25 +3,45 @@ import axios from 'axios'
 export const ProductsApi = async () => {
   const params = {
     price_greater_than: 7,
+    limit: 20,
     product_category: 'lipstick'
   }
-  const headers = {
-    'x-rapidapi-host': 'makeup.p.rapidapi.com',
-    'x-rapidapi-key': '987c138384msh9a477d52cf0b6b0p1046aejsn330ef344d326'
-  }
-  const request = await axios.get('https://makeup.p.rapidapi.com/products.json', { params, headers })
+  const request = await axios.get('https://glamified.herokuapp.com/api/makeup', { params })
+  return request
+}
+
+export const getSingleProduct = async id => {
+  const request = await axios.get(`https://glamified.herokuapp.com/api/makeup/${id}`)
+  console.log('here', request)
   return request
 }
 
 export const EyeItemsApi = async () => {
   const params = {
     price_greater_than: 13,
-    product_category: 'liquid'
+    product_category: 'pencil',
   }
-  const headers = {
-    'x-rapidapi-host': 'makeup.p.rapidapi.com',
-    'x-rapidapi-key': '987c138384msh9a477d52cf0b6b0p1046aejsn330ef344d326'
+
+  const request = await axios.get('https://glamified.herokuapp.com/api/makeup', { params })
+  return request
+}
+
+export const CreamItemsApi = async () => {
+  const params = {
+    price_greater_than: 13,
+    product_category: 'cream',
   }
-  const request = await axios.get('https://makeup.p.rapidapi.com/products.json', { params, headers })
+
+  const request = await axios.get('https://glamified.herokuapp.com/api/makeup', { params })
+  return request
+}
+
+export const ConcealerItemsApi = async () => {
+  const params = {
+    price_greater_than: 13,
+    product_category: 'concealer',
+  }
+
+  const request = await axios.get('https://glamified.herokuapp.com/api/makeup', { params })
   return request
 }

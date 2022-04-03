@@ -1,32 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
-import lipstick from '../../assets/images/makeup1.jpg';
+import { getSingleProduct } from '../../api';
 import Button from '../Button';
 import './description.css';
 
 const Description = () => {
 
-  // const location = useLocation()
-
   const { id } = useParams()
+  const [product, setProduct] = useState([])
 
+  const { refetch } = useQuery(
+    'getSingleProduct',
+    () => getSingleProduct(id),
+      {
+        enabled: false,
+        retry: false,
+        onSuccess: (data) => {
+          setProduct(data.data.result)
+        }
+      },
+  );
 
-  console.log(id, 'iddd')
+  console.log(product, 'product')
+ 
+
+  useEffect(() => {
+    refetch()
+  }, [id])
 
   return (
     <div className='description-Wrapper'>
       <div className='product-wrapper'>
-        <div style={{ width: '400px' }}>
-          <img src={lipstick} alt='' className='product-img' />
+        {product.map((product) => (
+          <>
+            <div style={{ width: '400px' }}>
+          <img src={product?.api_featured_image} alt='' className='productImage' />
         </div>
         <div className='description-details'>
-          <h1>Lipstick</h1>
-          <h3>Category</h3>
-          <h1>$50.00</h1>
+          <h1>{product.product_type}</h1>
+          <h3>{product?.category}</h3>
+          <h1>{product?.brand}</h1>
+          <h1>${product?.price}</h1>
           <p>
-            Blotted Lip Sheer matte lipstick that creates the perfect popsicle
-            pout! Formula is lightweight, matte and buildable for light to
-            medium coverage.
+           {product.description}
           </p>
           <div>
             <Button 
@@ -36,6 +53,8 @@ const Description = () => {
             />
           </div>
         </div>
+          </>
+        ))}
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ const NavBar = (props) => {
         <p className='signUpText' onClick={handleShowModal}>Sign Up</p>
         <div style={{position: 'relative', cursor: 'pointer'}}>
           <ShoppingCartOutlined style={{ fontSize: '30px' }} />
-          <span onClick={() =>  console.log(props.cart, 'carttttt')} className='cartCount'>{props.cart.length}</span>
+          <span onClick={() =>  console.log(props?.cart, 'carttttt')} className='cartCount'>{props?.cart?.length}</span>
         </div>
       </div>
     </div>

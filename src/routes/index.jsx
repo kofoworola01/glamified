@@ -3,6 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import ProductDescription from '../pages/ProductDescription';
 import Eyes from '../pages/Eyes';
+import Cream from '../pages/Cream';
+import Concealer from '../pages/Concealer';
+// import NotFound from '../pages/NotFound';
 
 const Routes = () => {
 
@@ -17,6 +20,10 @@ const Routes = () => {
       <Route exact path='/' render={() => <Home handleCartCount={handleCartCount} cart={cart} /> } />
       <Route path='/product/:id' component={ProductDescription} />
       <Route path='/eyes' render={() => <Eyes handleCartCount={handleCartCount} cart={cart}/> } />
+      <Route path='/cream' render={() => <Cream handleCartCount={handleCartCount} cart={cart}/> } />
+      <Route path='/concealer' render={() => <Concealer handleCartCount={handleCartCount} cart={cart}/> } />
+
+      {/* <Route path="*" component={NotFound} /> */}
     </BrowserRouter>
   );
 };
