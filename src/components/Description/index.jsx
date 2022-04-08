@@ -21,8 +21,6 @@ const Description = () => {
         }
       },
   );
-
-  console.log(product, 'product')
  
 
   useEffect(() => {
@@ -38,9 +36,10 @@ const Description = () => {
           <img src={product?.api_featured_image} alt='' className='productImage' />
         </div>
         <div className='description-details'>
-          <h1>{product.product_type}</h1>
-          <h3>{product?.category}</h3>
-          <h1>{product?.brand}</h1>
+          <h1>{product?.name}</h1>
+          <p>Category: {product?.category}</p>
+          {/* <h3>{product?.category}</h3> */}
+          <p>Product Brand: {product?.brand}</p>
           <h1>${product?.price}</h1>
           <p>
            {product.description}

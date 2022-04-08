@@ -9,6 +9,7 @@ import './products.css';
 const Products = (props) => {
   const history = useHistory();
   const getUrl = history.location.pathname.split('/')[1]
+  
 
   const { data, isLoading, refetch } = useQuery(
     'fetchCategory',
@@ -23,6 +24,12 @@ const Products = (props) => {
 
   let items = data?.data?.result;
 
+  // const handleDisbaleButton = (id) => {
+  //   return props.cart.find(item => item.id === id)
+  // }
+
+  console.log(props.handleCartCount, 'props.handleCartCount')
+  
 
   useEffect(() => {
     refetch();
@@ -38,7 +45,7 @@ const Products = (props) => {
             span={4}
             className='category'
             onClick={() => history.push('/eyes')}
-            style={{background: `${getUrl === 'eyes' && 'deeppink'}`}}
+            style={{background: `${getUrl === 'eyes' && '#e6e6e6'}`}}
           >
             EYE
           </Col>
@@ -46,11 +53,11 @@ const Products = (props) => {
             span={4} 
             className='category' 
             onClick={() => history.push('/concealer')}
-            style={{background: `${getUrl === 'concealer' && 'deeppink'}`}}
+            style={{background: `${getUrl === 'concealer' && '#e6e6e6'}`}}
             >
             CONCEALER
           </Col>
-          <Col span={4} className='category' onClick={() => history.push('/cream')} style={{background: `${getUrl === 'cream' && 'deeppink'}`}}>
+          <Col span={4} className='category' onClick={() => history.push('/cream')} style={{background: `${getUrl === 'cream' && '#e6e6e6'}`}}>
             CREAM
           </Col>
           <Col span={4} className='category'>
@@ -87,8 +94,8 @@ const Products = (props) => {
                   </div>
                   <div>
                     <div className='product-details'>
-                      <h2>{data?.name}</h2>
-                      <p>{data?.category}</p>
+                      <p>{data?.name}</p>
+                      <p>Category: {data?.category}</p>
                       <p style={{ fontSize: '20px' }}>
                         {data?.price_sign}
                         {data?.price}
@@ -97,6 +104,7 @@ const Products = (props) => {
                         BtnText='Add to Cart'
                         type='homepage'
                         handleClick={() => props.handleCartCount(data)}
+                        // disabled={handleDisbaleButton(data.id)}
                       />
                     </div>
                   </div>

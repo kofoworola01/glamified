@@ -1,6 +1,9 @@
 .description-Wrapper {
     padding: 130px;
 }
+p, h1{
+    text-transform: capitalize;
+}
 .productImage {
     height: auto;
     width: 400px;

@@ -1,7 +1,7 @@
 import React from 'react'
 import './button.css'
 
-const Button = ({BtnText, fontSize, type, BtnWidth, handleClick, BtnBg}) => {
+const Button = ({BtnText, fontSize, type, BtnWidth, handleClick, BtnBg, disabled}) => {
 
   const BtnStyle = {
     width: `${BtnWidth ? BtnWidth : '215px'}`,
@@ -13,12 +13,13 @@ const Button = ({BtnText, fontSize, type, BtnWidth, handleClick, BtnBg}) => {
     fontWeight: 'bold',
     margin: `${type === 'homepage' ? '20px' : null}`,
     cursor: 'pointer',
+    color: 'black',
   }
 
 
   return (
     <div>
-      <button style={BtnStyle} className='btn' onClick={handleClick}>
+      <button style={BtnStyle} className='btn' onClick={handleClick} disabled={disabled}>
         {BtnText}
       </button>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './navbar.css';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
@@ -15,6 +15,8 @@ const NavBar = (props) => {
   const handleCancel = () => {
     setIsModalVisible(false)
   }
+
+  let history = useHistory();
 
 
   return (
@@ -37,8 +39,13 @@ const NavBar = (props) => {
       <div className='icons'>
         <p className='signUpText' onClick={handleShowModal}>Sign Up</p>
         <div style={{position: 'relative', cursor: 'pointer'}}>
-          <ShoppingCartOutlined style={{ fontSize: '30px' }} />
-          <span onClick={() =>  console.log(props?.cart, 'carttttt')} className='cartCount'>{props?.cart?.length}</span>
+          <ShoppingCartOutlined style={{ fontSize: '30px' }} onClick={() =>  {
+            history.push({
+              pathname: '/cart',
+              state: props?.cart
+            })
+          }}  />
+          <span className='cartCount'>{props?.cart?.length}</span>
         </div>
       </div>
     </div>
