@@ -45,7 +45,7 @@ const Products = (props) => {
             span={4}
             className='category'
             onClick={() => history.push('/eyes')}
-            style={{background: `${getUrl === 'eyes' && '#e6e6e6'}`}}
+            style={{background: `${getUrl === 'eyes' && 'rgb(255, 224, 229)'}`}}
           >
             EYE
           </Col>
@@ -53,11 +53,11 @@ const Products = (props) => {
             span={4} 
             className='category' 
             onClick={() => history.push('/concealer')}
-            style={{background: `${getUrl === 'concealer' && '#e6e6e6'}`}}
+            style={{background: `${getUrl === 'concealer' && 'rgb(255, 224, 229)'}`}}
             >
             CONCEALER
           </Col>
-          <Col span={4} className='category' onClick={() => history.push('/cream')} style={{background: `${getUrl === 'cream' && '#e6e6e6'}`}}>
+          <Col span={4} className='category' onClick={() => history.push('/cream')} style={{background: `${getUrl === 'cream' && 'rgb(255, 224, 229)'}`}}>
             CREAM
           </Col>
           <Col span={4} className='category'>

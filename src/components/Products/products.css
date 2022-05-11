@@ -11,7 +11,8 @@
   font-weight: 700;
   font-size: 20px;
   padding: 10px;
-  background-color: rgb(255, 224, 229);
+  background-color: #e6e6e6;
+  /* background-color: rgb(255, 224, 229); */
   cursor: pointer;
 }
 .category:hover {
