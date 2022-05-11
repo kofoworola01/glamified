@@ -25,6 +25,7 @@ const Description = () => {
 
   useEffect(() => {
     refetch()
+     // eslint-disable-next-line 
   }, [id])
 
   return (
