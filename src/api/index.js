@@ -42,6 +42,6 @@ export const ConcealerItemsApi = async () => {
     product_category: 'concealer',
   }
 
-  const request = await axios.get(`https://make-up.onrender.com/api/makeup', { params })
+  const request = await axios.get('https://make-up.onrender.com/api/makeup', { params })
   return request
 }
