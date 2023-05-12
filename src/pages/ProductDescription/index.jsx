@@ -1,13 +1,11 @@
 import React from 'react';
-import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Description from '../../components/Description'
 
-const ProductDescription = () => {
+const ProductDescription = (props) => {
   return (
     <div>
-      <Navbar />
-      <Description />
+      <Description handleCartCount={props.handleCartCount}/>
       <Footer />
     </div>
   );

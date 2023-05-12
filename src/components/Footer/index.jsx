@@ -60,7 +60,7 @@ const index = () => {
       </Row>
       <div className='hr'></div>
       <div className='footer-text'>
-        &copy; 2021 Glamified. All rights reserved.
+        &copy; 2022 Glamified. All rights reserved.
       </div>
     </div>
   );

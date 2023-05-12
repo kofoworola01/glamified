@@ -14,6 +14,12 @@ p, h1{
 .description-details {
     margin-left: 90px;
 }
+.product-color {
+    display: flex;
+    justify-content: space-between;
+    width: 36%;
+    margin-bottom: 25px;
+}
 /* .add-to-cart {
     height: 50px;
     width: 200px;

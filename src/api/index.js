@@ -12,7 +12,6 @@ export const ProductsApi = async () => {
 
 export const getSingleProduct = async id => {
   const request = await axios.get(`https://make-up.onrender.com/api/makeup/${id}`)
-  console.log('here', request)
   return request
 }
 

@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { usePaystackPayment } from 'react-paystack';
-import NavBar from '../../components/Navbar'
 import Button from '../../components/Button'
 import Footer from '../../components/Footer'
 import EmptyCart from '../../assets/images/Empty-Cart.jpeg'
@@ -12,16 +11,24 @@ const Cart = () => {
 
     const history = useHistory()
     const [cartList,] = useState(history?.location?.state)
+    const [priceTotal, setPriceTotal] = useState(0)
     const [, setShowPayStack] = useState(false)
-
-    console.log(cartList, 'cartList')
 
     const config = {
         reference: (new Date()).getTime().toString(),
         email: "user@example.com",
-        amount: 20000,
+        amount: Math.floor(priceTotal),
         publicKey: 'pk_test_9fa6c6abbc21cef2adbcec3361e47a995d6a810e',
     };
+
+    const handleTotal = () => {
+        let total = 0
+        cartList.map(list => {
+            total = total + list.price;
+            return '';
+        })
+        setPriceTotal(total)
+    }
 
     const initializePayment = usePaystackPayment(config)
 
@@ -38,58 +45,52 @@ const Cart = () => {
         initializePayment(onSuccess, onClose)
     }
 
+    useEffect(() => {
+        handleTotal()
+
+        // eslint-disable-next-line
+    }, [priceTotal])
+
     return (
         <div className='wrapper'>
-            <NavBar />
-            {cartList.length === 0 ? 
+            {/* <NavBar /> */}
+            {cartList.length === 0 ?
                 <div>
                     <img src={EmptyCart} alt='empty cart icon' />
                 </div>
-            : (
-                <>
-                    <div style={{ marginTop: '50px' }}>
-                        {cartList?.map((c) => {
-                            return (
-                                <div key={c.id}>
-                                    <div className="sub-wrapper">
-                                        <div className="cart-image">
-                                            <img src={c.api_featured_image} alt="" />
-                                        </div>
-                                        <div className="des-content">
-                                            <div>
-                                                <h3>{c.name}</h3>
-                                                <p>Brand: {c.brand}</p>
-                                                {/* <p>{c.description}</p> */}
-                                                <div className="cart-price">&#8358;{c.price}</div>
-                                                {/* <div className='product-color'>
-                                    {c.product_colors.map((color) => {
-                                            return (
-                                                <>
-                                                    <p>{color.colour_name}</p>
-                                                    <div style={{height: '20px', width: '20px', background: `${color.hex_value}`}}></div>
-                                                </>
-                                            )
-                                        })}
-                                   </div> */}
+                : (
+                    <>
+                        <div style={{ marginTop: '50px' }}>
+                            {cartList?.map((item) => {
+                                return (
+                                    <div key={item.id}>
+                                        <div className="sub-wrapper">
+                                            <div className="cart-image">
+                                                <img src={item.api_featured_image} alt="" />
+                                            </div>
+                                            <div className="des-content">
+                                                <div>
+                                                    <h3>{item.name}</h3>
+                                                    <p>Brand: {item.brand}</p>
+                                                    <div className="cart-price">&#8358;{item.price}</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        }
-                        )
-                        }
-                    </div>
-                    {/* <button className="btn">Buy Now</button> */}
-                    <div style={{ display: 'flex', justifyContent: 'center', margin: '40px' }}>
-                        <Button
-                            BtnText='Buy Now'
-                            BtnBg='rgb(248, 91, 175)'
-                            handleClick={handleShowPayStack}
-                        />
-                    </div>
-                </>
-            )}
+                                )
+                            }
+                            )}
+                        </div>
+                        <h1>Total: {priceTotal}</h1>
+                        <div style={{ display: 'flex', justifyContent: 'center', margin: '40px' }}>
+                            <Button
+                                BtnText='Buy Now'
+                                BtnBg='rgb(248, 91, 175)'
+                                handleClick={handleShowPayStack}
+                            />
+                        </div>
+                    </>
+                )}
             <Footer />
         </div>
 

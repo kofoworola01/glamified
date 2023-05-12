@@ -7,7 +7,7 @@ import Cream from '../pages/Cream';
 import Concealer from '../pages/Concealer';
 import Cart from '../pages/Cart';
 // import NotFound from '../pages/NotFound';
-
+import NavBar from '../components/Navbar';
 const Routes = () => {
 
   const [cart, setCart] = useState([])
@@ -17,15 +17,18 @@ const Routes = () => {
   }
     
   return (
+  <>
     <BrowserRouter>
+    <NavBar cart={cart}/>
       <Route exact path='/' render={() => <Home handleCartCount={handleCartCount} cart={cart} /> } />
-      <Route path='/product/:id' component={ProductDescription} />
+      <Route path='/product/:id' render={() => <ProductDescription handleCartCount={handleCartCount} cart={cart} /> }/>
       <Route path='/eyes' render={() => <Eyes handleCartCount={handleCartCount} cart={cart}/> } />
       <Route path='/cream' render={() => <Cream handleCartCount={handleCartCount} cart={cart}/> } />
       <Route path='/concealer' render={() => <Concealer handleCartCount={handleCartCount} cart={cart}/> } />
       <Route path='/cart' render={() => <Cart cart={cart}/> } />
       {/* <Route path="*" component={NotFound} /> */}
     </BrowserRouter>
+    </>
   );
 };
 

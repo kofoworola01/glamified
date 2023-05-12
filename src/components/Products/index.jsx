@@ -27,8 +27,6 @@ const Products = (props) => {
   // const handleDisbaleButton = (id) => {
   //   return props.cart.find(item => item.id === id)
   // }
-
-  console.log(props.handleCartCount, 'props.handleCartCount')
   
 
   useEffect(() => {
@@ -94,11 +92,10 @@ const Products = (props) => {
                   </div>
                   <div>
                     <div className='product-details'>
-                      <p>{data?.name}</p>
-                      <p>Category: {data?.category}</p>
+                      <h2>{data?.name}</h2>
+                      <p>Brand: {data?.brand}</p>
                       <p style={{ fontSize: '20px' }}>
-                        {data?.price_sign}
-                        {data?.price}
+                        ${data?.price}
                       </p>
                       <Button
                         BtnText='Add to Cart'
