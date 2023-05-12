@@ -20,12 +20,12 @@ const Routes = () => {
   <>
     <BrowserRouter>
     <NavBar cart={cart}/>
-      <Route exact path='/' render={() => <Home handleCartCount={handleCartCount} cart={cart} /> } />
-      <Route path='/product/:id' render={() => <ProductDescription handleCartCount={handleCartCount} cart={cart} /> }/>
-      <Route path='/eyes' render={() => <Eyes handleCartCount={handleCartCount} cart={cart}/> } />
-      <Route path='/cream' render={() => <Cream handleCartCount={handleCartCount} cart={cart}/> } />
-      <Route path='/concealer' render={() => <Concealer handleCartCount={handleCartCount} cart={cart}/> } />
-      <Route path='/cart' render={() => <Cart cart={cart}/> } />
+      <Route exact path='/' render={() => <Home handleCartCount={handleCartCount} /> } />
+      <Route path='/product/:id' render={() => <ProductDescription handleCartCount={handleCartCount}  /> }/>
+      <Route path='/eyes' render={() => <Eyes handleCartCount={handleCartCount} /> } />
+      <Route path='/cream' render={() => <Cream handleCartCount={handleCartCount} /> } />
+      <Route path='/concealer' render={() => <Concealer handleCartCount={handleCartCount} /> } />
+      <Route path='/cart' render={() => <Cart /> } />
       {/* <Route path="*" component={NotFound} /> */}
     </BrowserRouter>
     </>

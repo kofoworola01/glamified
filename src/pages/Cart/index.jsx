@@ -53,7 +53,6 @@ const Cart = () => {
 
     return (
         <div className='wrapper'>
-            {/* <NavBar /> */}
             {cartList.length === 0 ?
                 <div>
                     <img src={EmptyCart} alt='empty cart icon' />
